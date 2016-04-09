@@ -41,4 +41,20 @@ class Female extends Person {
         return birthCountdown;
     }
     
+    void giveBirth() {
+        pregnantStatus = false;
+        numChildren++;
+        spouse.increaseNumChildren();
+        if ((random.nextInt(2) == 0)) {
+            Male name = new Male();
+        } else {
+            Female name = new Female();
+        }
+    }
+    
+    void miscarriage() {
+        pregnantStatus = false;
+        birthCountdown = 0;
+    }
+    
 }

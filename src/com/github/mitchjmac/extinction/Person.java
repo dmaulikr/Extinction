@@ -11,6 +11,11 @@ abstract class Person {
     private int numChildren = 0;
     
     //Person Constructor
+    Person() {
+        numberPeople++;
+        age = 0;
+    }
+    
     Person(int inputAge) {
         numberPeople++;
         age = inputAge;
@@ -22,6 +27,13 @@ abstract class Person {
     }
     static void decreaseNumPeople() {
         numberPeople--;
+    }
+    
+    void increaseNumChildren() {
+        numChildren++;
+    }
+    void decreaseNumChildren() {
+        numChildren--;
     }
     
     //Person Abstract Methods
