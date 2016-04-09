@@ -1,5 +1,5 @@
 package com.github.mitchjmac.extinction;
 
-class PoliceMan extends Person {
+class PoliceMan extends Occupation {
 
 }

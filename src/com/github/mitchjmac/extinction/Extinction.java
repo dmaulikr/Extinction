@@ -1,6 +1,5 @@
 package com.github.mitchjmac.extinction;
 
-import java.util.HashMap;
 import java.util.ArrayList;
 
 public class Extinction {
@@ -24,13 +23,19 @@ public class Extinction {
         ArrayList medicines = new ArrayList();
         ArrayList vaccines = new ArrayList();
         
-        while (numberPeople != 0) {
-            calculate
+        while (Person.getNumPeople() != 0) {
+            
         }
         
         
     }
 
-    public 
+    public kill(Person toKill) {
+        
+    }
+    
+    public destroy(Building toDestory) {
+        
+    }
     
 }

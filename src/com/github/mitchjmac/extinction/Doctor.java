@@ -1,5 +1,5 @@
 package com.github.mitchjmac.extinction;
 
-class Doctor extends Person {
+class Doctor extends Occupation {
 
 }

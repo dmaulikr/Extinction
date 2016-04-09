@@ -1,5 +1,5 @@
 package com.github.mitchjmac.extinction;
 
-class Worker extends Person {
+class Worker extends Occupation {
 
 }

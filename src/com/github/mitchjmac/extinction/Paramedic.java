@@ -1,5 +1,5 @@
 package com.github.mitchjmac.extinction;
 
-class Paramedic extends Person {
+class Paramedic extends Occupation {
 
 }
