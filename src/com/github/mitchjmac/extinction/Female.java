@@ -7,21 +7,20 @@ class Female extends Person {
     private boolean pregnantStatus = false;
     private int birthCountdown;
     private Random random = new Random();
-    private Person baby;
-    
+    private Fetus baby;
     
     
     //Female Constructor
     Female() {
-        super ();
+        super();
     }
     
-    Female(Person p1, Person p2) {
-        super(p1, p2);
+    Female(Fetus f) {
+        super(f);
     }
     
     Female(int age) {
-        super (age);
+        super(age);
     }
     
     //Female Methods
@@ -37,11 +36,7 @@ class Female extends Person {
             if (((drunk && partner.isDrunk()) || (partner == spouse && (random.nextInt(19 + (38 * numChildren)) == 1))) && (random.nextInt(6) == 0)) {//6/32 married&child-bearing years try to have baby and chance of conception 16-17%
                 pregnantStatus = true;
                 birthCountdown = 270;
-                if ((random.nextInt(2) == 0)) {
-                    baby = new Male(partner, this);
-                } else {
-                    baby = new Female(partner, this);
-                }
+                baby = new Fetus(this, partner);
             }
         }
     }
@@ -56,20 +51,25 @@ class Female extends Person {
     }
     
     Person giveBirth() {
+        if (random.nextInt(2) == 0) {
+            Male child = new Male(baby);
+        } else {
+            Female child = new Female(baby);
+        }
         pregnantStatus = false;
         birthCountdown = 0;
-        numChildren++;
-        spouse.increaseNumChildren();
-        Person toReturn = baby;
         baby = null;
-        return toReturn; //use this return to add child to list of people
-        // add child to mom and dad's children arraylist
+        child.parents.get(0).children.add(child);
+        child.parents.get(1).children.add(child);
+        child.parents.get(0).increaseNumChildren();
+        child.parents.get(1).increaseNumChildren();
+        return child; //use this return to add child to list of people
     }
     
     void miscarriage() {
         pregnantStatus = false;
         birthCountdown = 0;
-        //decrese number people
+        baby = null;
     }
     
 }

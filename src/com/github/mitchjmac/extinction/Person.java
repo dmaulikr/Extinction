@@ -12,7 +12,7 @@ abstract class Person {
     private int numDrinks = 0;
     private boolean drunk = false;
     private int numChildren = 0;
-    private Person[] parents = new Person[2];
+    private ArrayList<Person> parents = new ArrayList<Person>();
     private ArrayList<Person> children = new ArrayList<Person>();
     
     
@@ -22,11 +22,12 @@ abstract class Person {
         age = 0;
     }
     
-    Person(Person p1, Person p2) {
+    Person(Fetus f) {
         numberPeople++;
         age = 0;
-        parents[0] = p1;
-        parents[1] = p2;
+        for(int i = 0; i < 2; i++) {
+            parents.add(f.getParent(i));
+        }
     }
     
     Person(int inputAge) {
@@ -42,12 +43,6 @@ abstract class Person {
         numberPeople--;
     }
     
-    void increaseNumChildren() {
-        numChildren++;
-    }
-    void decreaseNumChildren() {
-        numChildren--;
-    }
     
     //Person Abstract Methods
     abstract void drink();
@@ -62,6 +57,13 @@ abstract class Person {
         age++;
     }
     
+    void increaseNumChildren() {
+        numChildren++;
+    }
+    void decreaseNumChildren() {
+        numChildren--;
+    }
+    
     boolean isDrunk() {
         return drunk;
     }
@@ -71,6 +73,20 @@ abstract class Person {
         if (spouse.getSpouse() != this) {
             spouse.getMarried(this);
         }
+    }
+    
+    void addParent(Person p) {
+        parents.add(p);
+    }
+    void removeParent(Person p) {
+        parents.remove(p);
+    }
+    
+    void addChild(Person c) {
+        children.add(p);
+    }
+    void removeChild(Person c) {
+        children.remove(p);
     }
     
 }
