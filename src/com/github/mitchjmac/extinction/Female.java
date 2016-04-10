@@ -7,10 +7,19 @@ class Female extends Person {
     private boolean pregnantStatus = false;
     private int birthCountdown;
     private Random random = new Random();
+    private Person baby;
     
     
     
     //Female Constructor
+    Female() {
+        super ();
+    }
+    
+    Female(Person p1, Person p2) {
+        super(p1, p2);
+    }
+    
     Female(int age) {
         super (age);
     }
@@ -23,11 +32,16 @@ class Female extends Person {
         }
     }
     
-    void haveSex(Person partner) {
+    void scoodilypoop(Person partner) {
         if (partner instanceof Male) {
             if (((drunk && partner.isDrunk()) || (partner == spouse && (random.nextInt(19 + (38 * numChildren)) == 1))) && (random.nextInt(6) == 0)) {//6/32 married&child-bearing years try to have baby and chance of conception 16-17%
                 pregnantStatus = true;
                 birthCountdown = 270;
+                if ((random.nextInt(2) == 0)) {
+                    baby = new Male(partner, this);
+                } else {
+                    baby = new Female(partner, this);
+                }
             }
         }
     }
@@ -41,20 +55,21 @@ class Female extends Person {
         return birthCountdown;
     }
     
-    void giveBirth() {
+    Person giveBirth() {
         pregnantStatus = false;
+        birthCountdown = 0;
         numChildren++;
         spouse.increaseNumChildren();
-        if ((random.nextInt(2) == 0)) {
-            Male name = new Male();
-        } else {
-            Female name = new Female();
-        }
+        Person toReturn = baby;
+        baby = null;
+        return toReturn; //use this return to add child to list of people
+        // add child to mom and dad's children arraylist
     }
     
     void miscarriage() {
         pregnantStatus = false;
         birthCountdown = 0;
+        //decrese number people
     }
     
 }

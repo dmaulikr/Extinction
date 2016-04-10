@@ -1,5 +1,8 @@
 package com.github.mitchjmac.extinction;
 
+import java.util.ArrayList;
+
+
 abstract class Person {
     
     //Person Fields
@@ -9,11 +12,21 @@ abstract class Person {
     private int numDrinks = 0;
     private boolean drunk = false;
     private int numChildren = 0;
+    private Person[] parents = new Person[2];
+    private ArrayList<Person> children = new ArrayList<Person>();
+    
     
     //Person Constructor
     Person() {
         numberPeople++;
         age = 0;
+    }
+    
+    Person(Person p1, Person p2) {
+        numberPeople++;
+        age = 0;
+        parents[0] = p1;
+        parents[1] = p2;
     }
     
     Person(int inputAge) {
@@ -39,7 +52,7 @@ abstract class Person {
     //Person Abstract Methods
     abstract void drink();
     
-    abstract void haveSex();
+    abstract void scoodilypoop();
     
     //Person Instance Methods
     int getAge() {

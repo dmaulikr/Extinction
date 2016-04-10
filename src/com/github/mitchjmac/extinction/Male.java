@@ -7,6 +7,10 @@ class Male extends Person {
         super();
     }
     
+    Male(Person p1, Person p2) {
+        super(p1, p2);
+    }
+    
     Male(int age) {
         super(age);
     }
@@ -19,7 +23,7 @@ class Male extends Person {
         }
     }
     
-    void haveSex(Person partner) {
+    void scoodilypoop(Person partner) {
         if (partner instanceof Female) {
             partner.haveSex(this);
         }
