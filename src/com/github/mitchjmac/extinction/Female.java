@@ -1,20 +1,14 @@
 package com.github.mitchjmac.extinction;
-import java.util.Random;
 
 class Female extends Person {
     
     //Female Fields
     private boolean pregnantStatus = false;
     private int birthCountdown;
-    private Random random = new Random();
     private Fetus baby;
     
     
     //Female Constructor
-    Female() {
-        super();
-    }
-    
     Female(Fetus f) {
         super(f);
     }
@@ -33,7 +27,7 @@ class Female extends Person {
     
     void scoodilypoop(Person partner) {
         if (partner instanceof Male) {
-            if (((drunk && partner.isDrunk()) || (partner == spouse && (random.nextInt(19 + (38 * numChildren)) == 1))) && (random.nextInt(6) == 0)) {//6/32 married&child-bearing years try to have baby and chance of conception 16-17%
+            if (((drunk && partner.isDrunk()) || (partner == spouse && (Person.random.nextInt(19 + (38 * numChildren)) == 1))) && (Person.random.nextInt(6) == 0)) {//6/32 married&child-bearing years try to have baby and chance of conception 16-17%
                 pregnantStatus = true;
                 birthCountdown = 270;
                 baby = new Fetus(this, partner);
@@ -59,10 +53,8 @@ class Female extends Person {
         pregnantStatus = false;
         birthCountdown = 0;
         baby = null;
-        child.parents.get(0).children.add(child);
-        child.parents.get(1).children.add(child);
-        child.parents.get(0).increaseNumChildren();
-        child.parents.get(1).increaseNumChildren();
+        child.parents.get(0).addChild(child);
+        child.parents.get(1).addChild(child);
         return child; //use this return to add child to list of people
     }
     
@@ -70,6 +62,18 @@ class Female extends Person {
         pregnantStatus = false;
         birthCountdown = 0;
         baby = null;
+    }
+    
+    //Inner Classes
+    private class Fetus {
+        private Person[] parents = new Person[2];
+        Fetus(Person p1, Person p2) {
+            parents[0] = p1;
+            parents[1] = p2;
+        }
+        Person getParent(int i) {
+            return parents[i];
+        }
     }
     
 }

@@ -1,29 +1,31 @@
 package com.github.mitchjmac.extinction;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 
 abstract class Person {
     
-    //Person Fields
+    //Person Static Fields
     private static int numberPeople = 0;
+    private static Random random = new Random();
+    
+    //Person Instance Fields
+    private int name;
     private int age;
+    private Occupation job;
     private Person spouse;
-    private int numDrinks = 0;
-    private boolean drunk = false;
-    private int numChildren = 0;
     private ArrayList<Person> parents = new ArrayList<Person>();
     private ArrayList<Person> children = new ArrayList<Person>();
+    private int numChildren = 0;
+    private int numDrinks = 0;
+    private boolean drunk = false;
     
     
-    //Person Constructor
-    Person() {
-        numberPeople++;
-        age = 0;
-    }
-    
+    //Person Constructors
     Person(Fetus f) {
         numberPeople++;
+        name = numberPeople;
         age = 0;
         for(int i = 0; i < 2; i++) {
             parents.add(f.getParent(i));
@@ -32,6 +34,7 @@ abstract class Person {
     
     Person(int inputAge) {
         numberPeople++;
+        name = numberPeople;
         age = inputAge;
     }
     
@@ -57,11 +60,23 @@ abstract class Person {
         age++;
     }
     
-    void increaseNumChildren() {
+    void addChild(Person c) {
+        children.add(c);
         numChildren++;
     }
-    void decreaseNumChildren() {
+    void removeChild(Person c) {
+        children.remove(c);
         numChildren--;
+    }
+    int getNumChildren() {
+        return numChildren;
+    }
+    
+    void addParent(Person p) {
+        parents.add(p);
+    }
+    void removeParent(Person p) {
+        parents.remove(p);
     }
     
     boolean isDrunk() {
@@ -73,20 +88,6 @@ abstract class Person {
         if (spouse.getSpouse() != this) {
             spouse.getMarried(this);
         }
-    }
-    
-    void addParent(Person p) {
-        parents.add(p);
-    }
-    void removeParent(Person p) {
-        parents.remove(p);
-    }
-    
-    void addChild(Person c) {
-        children.add(p);
-    }
-    void removeChild(Person c) {
-        children.remove(p);
     }
     
 }

@@ -3,10 +3,6 @@ package com.github.mitchjmac.extinction;
 class Male extends Person {
     
     //Male Constructor
-    Male() {
-        super();
-    }
-    
     Male(Fetus f) {
         super(f);
     }
