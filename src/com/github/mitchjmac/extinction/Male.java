@@ -2,14 +2,14 @@ package com.github.mitchjmac.extinction;
 
 class Male extends Person {
     
-    //Male Constructor
+    //Male Constructors
+    Male(int age) {
+        super(age);
+    }
     Male(Fetus f) {
         super(f);
     }
     
-    Male(int age) {
-        super(age);
-    }
     
     //Male Methods
     void drink() {

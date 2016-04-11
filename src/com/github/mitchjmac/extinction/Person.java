@@ -10,6 +10,7 @@ abstract class Person {
     private static int numberPeople = 0;
     private static Random random = new Random();
     
+    
     //Person Instance Fields
     private int name;
     private int age;
@@ -18,11 +19,16 @@ abstract class Person {
     private ArrayList<Person> parents = new ArrayList<Person>();
     private ArrayList<Person> children = new ArrayList<Person>();
     private int numChildren = 0;
-    private int numDrinks = 0;
     private boolean drunk = false;
+    private int numDrinks = 0;
     
     
     //Person Constructors
+    Person(int inputAge) {
+        numberPeople++;
+        name = numberPeople;
+        age = inputAge;
+    }
     Person(Fetus f) {
         numberPeople++;
         name = numberPeople;
@@ -32,11 +38,6 @@ abstract class Person {
         }
     }
     
-    Person(int inputAge) {
-        numberPeople++;
-        name = numberPeople;
-        age = inputAge;
-    }
     
     //Person Static Methods
     static int getNumPeople() {
@@ -49,8 +50,8 @@ abstract class Person {
     
     //Person Abstract Methods
     abstract void drink();
-    
     abstract void scoodilypoop();
+    
     
     //Person Instance Methods
     int getAge() {

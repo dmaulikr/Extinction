@@ -8,14 +8,14 @@ class Female extends Person {
     private Fetus baby;
     
     
-    //Female Constructor
+    //Female Constructors
+    Female(int age) {
+        super(age);
+    }
     Female(Fetus f) {
         super(f);
     }
     
-    Female(int age) {
-        super(age);
-    }
     
     //Female Methods
     void drink() {
@@ -57,12 +57,12 @@ class Female extends Person {
         child.parents.get(1).addChild(child);
         return child; //use this return to add child to list of people
     }
-    
     void miscarriage() {
         pregnantStatus = false;
         birthCountdown = 0;
         baby = null;
     }
+    
     
     //Inner Classes
     private class Fetus {
