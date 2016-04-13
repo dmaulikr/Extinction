@@ -4,7 +4,6 @@ class Drought extends Disaster {
     
     //Drought Fields
     private int duration;
-    private int currentLifetime;
     
     
     //Drought Constructor
@@ -14,8 +13,8 @@ class Drought extends Disaster {
     
     
     //Drought Methods
-    int getDeathPercent() {
-        
+    void decreaseDuration() {
+        duration--;
     }
     
 }

@@ -3,18 +3,15 @@ package com.github.mitchjmac.extinction;
 class Invasion extends Disaster {
     
     //Invasion Fields
-    int deathPercent;
     
     
     //Invasion Constructors
     Invasion() {
-        
+        magnitude = (Disaster.random.nextInt(5) + 1); //1-5
     }
     
     
     //Invasion Methods
-    int getDeathPercent() {
-        
-    }
+    
     
 }

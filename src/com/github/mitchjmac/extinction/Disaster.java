@@ -9,16 +9,19 @@ abstract class Disaster {
     
     
     //Disaster Instance Fields
-    int deathPercent;
+    private int magnitude;
+    private int killChance; //integer out of total generic (non-app-specific) population
     
     
     //Disaster Constructors
     Disaster() {
-        
+        System.out.println("A " + getClass() + " occured.");
     }
     
     
-    //Disaster Abstract Methods
-    int getDeathPercent();
+    //Disaster Methods
+    int getkillChance() {
+        return killChance;
+    }
     
 }

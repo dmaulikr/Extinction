@@ -28,6 +28,7 @@ abstract class Person {
         numberPeople++;
         name = numberPeople;
         age = inputAge;
+        System.out.println("A person named " + name + " was placed on the planet by the alien overlords.");
     }
     Person(Fetus f) {
         numberPeople++;
@@ -36,6 +37,7 @@ abstract class Person {
         for(int i = 0; i < 2; i++) {
             parents.add(f.getParent(i));
         }
+        System.out.println("A person named " + name + " was born.");
     }
     
     
@@ -88,6 +90,14 @@ abstract class Person {
         spouse = fiance;
         if (spouse.getSpouse() != this) {
             spouse.getMarried(this);
+        }
+    }
+    
+    void getDivorced() {
+        Person temp = spouse;
+        spouse = null;
+        if (temp.getSpouse() != null) {
+            temp.getDivorced();
         }
     }
     

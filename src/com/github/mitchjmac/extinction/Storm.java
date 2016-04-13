@@ -4,41 +4,45 @@ class Storm extends Disaster {
 
     
     //Storm Fields
-    int deathPercent;
     
     
     //Storm Constructors
     Storm() {
-        
+        magnitude = (Disaster.random.nextInt(5) + 1); //1-5
     }
     
     
     //Storm Methods
-    int getDeathPercent() {
-        
-    }
+    
     
     //Inner Classes
-    private class Flood {
+    private class Flood extends Disaster {
         
     }
     
-    private class Hail {
+    private class Hail extends Disaster {
         
     }
     
-    private class lightning() {
+    private class lightning extends Disaster {
         
     }
     
-    private class Tornado {
+    private class Tornado extends Disaster { //only have chance if storm magnitude >=3
         
         //Tornado Fields
-        private int magnitude;
+        
         
         //Tornado Constructor
-        Tornado() {
-            magnitude = (Disaster.random.nextInt(5) + 1);
+        Tornado(int stormStrength) {
+            if (stormStrength == 3) {
+                magnitude = Disaster.random.nextInt(1);
+            } else if (stormStrength == 4) {
+                magnitude = (Disaster.random.nextInt(2) + 1);
+            } else {
+                magnitude = (Disaster.random.nextInt(3) + 3);
+            }
+            
         }
         
     }
