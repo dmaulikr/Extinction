@@ -1,23 +1,18 @@
 package com.github.mitchjmac.extinction;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Extinction {
 
     public static void main(String[] args) {
         
-        int numberPeople = 0;
-        
         //Generate People
-        
-        
-        BST buildings = new BST("building");
-        ArrayList outsidePlaces = new ArrayList(); //add types
-        ArrayList people = new ArrayList();
-        ArrayList vehicles = new ArrayList();
-        ArrayList foodSources = new ArrayList();
-        ArrayList waterSources = new ArrayList();
-        ArrayList disasters = new ArrayList();
+        LinkedList<Person> people = new LinkedList<Person>();
+        LinkedList<Location> locations = new LinkedList<Location>();
+        LinkedList<Vehicles> vehicles = new LinkedList<Vehicles>();
+        LinkedList<Disaster> disasters = new LinkedList<Disaster>();
+        LinkedList<FoodSource> food = new LinkedList<FoodSource>();
+        ArrayList water = new ArrayList();
         ArrayList pesticides = new ArrayList();
         ArrayList diseases = new ArrayList();
         ArrayList medicines = new ArrayList();

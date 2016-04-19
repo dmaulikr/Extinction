@@ -19,6 +19,7 @@ abstract class Person {
     private ArrayList<Person> parents = new ArrayList<Person>();
     private ArrayList<Person> children = new ArrayList<Person>();
     private int numChildren = 0;
+    private Vehicle = new Vehicle();
     private boolean drunk = false;
     private int numDrinks = 0;
     

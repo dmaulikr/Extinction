@@ -1,5 +1,5 @@
 package com.github.mitchjmac.extinction;
 
-class OutsideSpace {
+class OutsideSpace extends Location {
     
 }
