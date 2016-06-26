@@ -9,8 +9,8 @@ class Female extends Person {
     
     
     //Female Constructors
-    Female(int age) {
-        super(age);
+    Female() {
+        super();
     }
     Female(Fetus f) {
         super(f);
@@ -18,16 +18,9 @@ class Female extends Person {
     
     
     //Female Methods
-    void drink() {
-        numDrinks++;
-        if (numDrinks >= 3) {
-            drunk = true;
-        }
-    }
-    
     void scoodilypoop(Person partner) {
         if (partner instanceof Male) {
-            if (((drunk && partner.isDrunk()) || (partner == spouse && (Person.random.nextInt(19 + (38 * numChildren)) == 1))) && (Person.random.nextInt(6) == 0)) {//6/32 married&child-bearing years try to have baby and chance of conception 16-17%
+            if (((drunk && partner.isDrunk()) || (partner == spouse && (Person.getRandom().nextInt(19 + (38 * numChildren)) == 1))) && (Person.getRandom().nextInt(6) == 0)) {//6/32 married&child-bearing years try to have baby and chance of conception 16-17%
                 pregnantStatus = true;
                 birthCountdown = 270;
                 baby = new Fetus(this, partner);
@@ -45,7 +38,7 @@ class Female extends Person {
     }
     
     Person giveBirth() {
-        if (random.nextInt(2) == 0) {
+        if (getRandom().nextInt(2) == 0) {
             Male child = new Male(baby);
         } else {
             Female child = new Female(baby);
@@ -61,19 +54,6 @@ class Female extends Person {
         pregnantStatus = false;
         birthCountdown = 0;
         baby = null;
-    }
-    
-    
-    //Inner Classes
-    private class Fetus {
-        private Person[] parents = new Person[2];
-        Fetus(Person p1, Person p2) {
-            parents[0] = p1;
-            parents[1] = p2;
-        }
-        Person getParent(int i) {
-            return parents[i];
-        }
     }
     
 }

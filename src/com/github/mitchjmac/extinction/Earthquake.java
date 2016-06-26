@@ -7,7 +7,7 @@ class Earthquake extends Disaster {
     
     //Earthquake Constructor
     Earthquake() {
-        magnitude = (Disaster.random.nextInt(8) + 1); //1-8
+        magnitude = (Disaster.getRandom().nextInt(8) + 1); //1-8
     }
     
     

@@ -8,8 +8,8 @@ class Blizzard extends Disaster {
     
     //Blizzard Constructors
     Blizzard() {
-        magnitude = (Disaster.random.nextInt(5) + 1); //1-5
-        duration = (Disaster.random.nextInt(7) + 1); //days
+        magnitude = (Disaster.getRandom().nextInt(5) + 1); //1-5
+        duration = (Disaster.getRandom().nextInt(7) + 1); //days
     }
     
     

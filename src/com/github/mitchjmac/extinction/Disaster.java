@@ -6,11 +6,17 @@ abstract class Disaster {
 
     //Disaster Static Fields
     private static Random random = new Random();
+
+    
+    //Disasteer Static Methods
+    public static Random getRandom() {
+        return random;
+    }
     
     
     //Disaster Instance Fields
-    private int magnitude;
-    private int killChance; //integer out of total generic (non-app-specific) population
+    protected int magnitude;
+    protected int killChance; //integer out of total generic (non-app-specific) population
     
     
     //Disaster Constructors

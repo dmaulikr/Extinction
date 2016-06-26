@@ -8,7 +8,7 @@ class Storm extends Disaster {
     
     //Storm Constructors
     Storm() {
-        magnitude = (Disaster.random.nextInt(5) + 1); //1-5
+        magnitude = (Disaster.getRandom().nextInt(5) + 1); //1-5
     }
     
     
@@ -36,11 +36,11 @@ class Storm extends Disaster {
         //Tornado Constructor
         Tornado(int stormStrength) {
             if (stormStrength == 3) {
-                magnitude = Disaster.random.nextInt(1);
+                m = Disaster.getRandom().nextInt(1);
             } else if (stormStrength == 4) {
-                magnitude = (Disaster.random.nextInt(2) + 1);
+                m = (Disaster.getRandom().nextInt(2) + 1);
             } else {
-                magnitude = (Disaster.random.nextInt(3) + 3);
+                m = (Disaster.getRandom().nextInt(3) + 3);
             }
             
         }

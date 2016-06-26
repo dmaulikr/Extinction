@@ -7,7 +7,7 @@ class Invasion extends Disaster {
     
     //Invasion Constructors
     Invasion() {
-        magnitude = (Disaster.random.nextInt(5) + 1); //1-5
+        magnitude = (Disaster.getRandom().nextInt(5) + 1); //1-5
     }
     
     

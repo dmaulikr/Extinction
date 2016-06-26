@@ -2,7 +2,7 @@ package com.github.mitchjmac.extinction;
 
 class Building extends Location {
 
-    makeEmpty() { //foreclose house, bankrupt business, tennants move, etc.
+    void makeEmpty() { //foreclose house, bankrupt business, tennants move, etc.
         
     }
     

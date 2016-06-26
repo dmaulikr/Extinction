@@ -14,21 +14,22 @@ abstract class Person {
     //Person Instance Fields
     private int name;
     private int age;
+    private int weight;
     private Occupation job;
     private Person spouse;
     private ArrayList<Person> parents = new ArrayList<Person>();
     private ArrayList<Person> children = new ArrayList<Person>();
     private int numChildren = 0;
-    private Vehicle = new Vehicle();
+    private Vehicle vehicle;
     private boolean drunk = false;
     private int numDrinks = 0;
     
     
     //Person Constructors
-    Person(int inputAge) {
+    Person() {
         numberPeople++;
         name = numberPeople;
-        age = inputAge;
+        age = random.nextInt(20) + 20;
         System.out.println("A person named " + name + " was placed on the planet by the alien overlords.");
     }
     Person(Fetus f) {
@@ -43,20 +44,26 @@ abstract class Person {
     
     
     //Person Static Methods
-    static int getNumPeople() {
+    public static Random getRandom() {
+        return random;
+    }
+    public static int getNumPeople() {
         return numberPeople;
     }
-    static void decreaseNumPeople() {
-        numberPeople--;
+    protected static void incrementPeople() {
+        numberPeople++;
     }
     
     
     //Person Abstract Methods
-    abstract void drink();
-    abstract void scoodilypoop();
+    abstract void scoodilypoop(Person partner);
     
     
     //Person Instance Methods
+    public void die() {
+        
+    }
+    
     int getAge() {
         return age;
     }
@@ -83,17 +90,25 @@ abstract class Person {
         parents.remove(p);
     }
     
+    void drink() {
+        numDrinks++;
+        if (weight / numDrinks <= 4 ) { //http://dui.drivinglaws.org/drink-table.php
+            drunk = true;
+        }
+    }
     boolean isDrunk() {
         return drunk;
     }
     
+    Person getSpouse() {
+        return spouse;
+    }
     void getMarried(Person fiance) {
         spouse = fiance;
         if (spouse.getSpouse() != this) {
             spouse.getMarried(this);
         }
     }
-    
     void getDivorced() {
         Person temp = spouse;
         spouse = null;

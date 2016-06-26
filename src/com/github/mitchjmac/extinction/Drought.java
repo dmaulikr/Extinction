@@ -8,7 +8,7 @@ class Drought extends Disaster {
     
     //Drought Constructor
     Drought() {
-        duration = (Disaster.random.nextInt(120) + 1);//months
+        duration = (Disaster.getRandom().nextInt(120) + 1);//months
     }
     
     

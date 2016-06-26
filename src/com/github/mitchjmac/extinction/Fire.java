@@ -7,7 +7,7 @@ class Fire extends Disaster {
     
     //Fire Constructors
     Fire() {
-        magnitude = (Disaster.random.nextInt(3) + 1); //1-3
+        magnitude = (Disaster.getRandom().nextInt(3) + 1); //1-3
     }
     
     
